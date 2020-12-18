@@ -9,11 +9,16 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 extension View {
-    func keyboardToolbar<Toolbar: View>(@ViewBuilder toolbar: @escaping () -> Toolbar) -> some View {
+    /// Modify the view by combinig the software keyboard with toolbar
+    /// - Parameter toolbar: View for toolbar
+    /// - Returns: modified view
+    public func keyboardToolbar<Toolbar: View>(@ViewBuilder toolbar: @escaping () -> Toolbar) -> some View {
         self.modifier(KeyboardToolbar(toolbar: toolbar))
     }
 
-    func keyboardToolbar() -> some View {
+    /// Modify the view by combinig the software keyboard with `default` toolbar with one trailing button to  dismiss the keyboard
+    /// - Returns: modified view
+    public func keyboardToolbar() -> some View {
         self.keyboardToolbar {
                 HStack {
                     Spacer()
