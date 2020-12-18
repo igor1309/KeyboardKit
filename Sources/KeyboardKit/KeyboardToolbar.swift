@@ -32,7 +32,7 @@ extension View {
             }
     }
 
-    func hideKeyboard() {
+    public func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 
@@ -50,25 +50,21 @@ fileprivate struct KeyboardToolbar<Toolbar: View>: ViewModifier {
     @StateObject private var keyboard = KeyboardResponder()
 
     func body(content: Content) -> some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             content
                 .padding(.bottom, keyboard.currentHeight == 0 ? 0 : toolbarHeight)
 
-            VStack {
-                Spacer()
+            ZStack(alignment: .top) {
+                Capsule()
+                    .fill(isDragging ? Color(UIColor.tertiaryLabel) : .clear)
+                    .frame(width: 100, height: capsuleHeight)
+                    .offset(y: 5)
 
-                ZStack(alignment: .top) {
-                    Capsule()
-                        .fill(isDragging ? Color(UIColor.tertiaryLabel) : .clear)
-                        .frame(width: 100, height: capsuleHeight)
-                        .offset(y: 5)
-
-                    toolbar()
-                }
-                .frame(maxWidth: .infinity, maxHeight: toolbarHeight)
-                .background(Color(UIColor.secondarySystemGroupedBackground))
-                .gesture(dragging())
+                toolbar()
             }
+            .frame(maxWidth: .infinity, maxHeight: toolbarHeight)
+            .background(Color(UIColor.secondarySystemGroupedBackground))
+            .gesture(dragging())
             .opacity(keyboard.currentHeight == 0 ? 0 : 1)
             .animation(.easeInOut(duration: keyboard.keyboardDuration))
         }
