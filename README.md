@@ -6,10 +6,17 @@ SwiftUI
 
 
 ## Use
-* func keyboardToolbar in View extension
+Apply func keyboardToolbar() to root view:
 
-Two options:
-1. Function call with parameter toolbar - a view closure for toolbar.
+```
+var body: some View {  
+	VStack { ... }	
+	.keyboardToolbar(...)  
+}  
+```
+
+Two options:  
+1. Function call with parameter toolbar - a view closure for toolbar.  
 2. No parameter would use `default` toolbar with one trailing button to  dismiss the keyboard. 
 
 
@@ -21,24 +28,16 @@ Moving view up (not to be hidden by keyboard:
 * great discussion in comments at [ios - How to show complete List when keyboard is showing up in SwiftUI - Stack Overflow](https://stackoverflow.com/a/56718632/11793043)
 
 
-[How to dismiss the keyboard for a TextField - a free SwiftUI by Example tutorial](https://www.hackingwithswift.com/quick-start/swiftui/how-to-dismiss-the-keyboard-for-a-textfield)
-
-[How to Make Pure SwiftUI Keyboard Toolbar? | by Prafulla Singh | The Startup | Medium](https://medium.com/swlh/how-to-make-pure-swiftui-keyboard-toolbar-16a3d092b4df)
-
-[How to make the bottom button follow the keyboard display in SwiftUI - Stack Overflow](https://stackoverflow.com/a/57743709)
-
-
-* [Keyboard Animation](https://stackoverflow.com/a/57743709/11793043)
+[How to dismiss the keyboard for a TextField - a free SwiftUI by Example tutorial](https://www.hackingwithswift.com/quick-start/swiftui/how-to-dismiss-the-keyboard-for-a-textfield)  
+[How to Make Pure SwiftUI Keyboard Toolbar? | by Prafulla Singh | The Startup | Medium](https://medium.com/swlh/how-to-make-pure-swiftui-keyboard-toolbar-16a3d092b4df)  
+[How to make the bottom button follow the keyboard display in SwiftUI - Stack Overflow](https://stackoverflow.com/a/57743709)   
+[Keyboard Animation](https://stackoverflow.com/a/57743709/11793043)  
 
 [iOS Custom Keyboard Guide - Shyngys Kassymov](https://shyngys.com/ios-custom-keyboard-guide)
 
 
-* KeyboardKit
+* KeyboardKit  
 
-    [KeyboardKitSwiftUI](https://github.com/danielsaidi/KeyboardKitSwiftUI)
-
-    [KeyboardKit](https://github.com/danielsaidi/KeyboardKit)
-
-    [KeyboardKit SwiftUI Readme](https://github.com/danielsaidi/KeyboardKit/blob/master/Readmes/SwiftUI.md)
-
-    [SwiftUI-Tutorial](https://github.com/danielsaidi/KeyboardKit/blob/master/Readmes/SwiftUI-Tutorial.md)
+    [KeyboardKitSwiftUI](https://github.com/danielsaidi/KeyboardKitSwiftUI)      	[KeyboardKit](https://github.com/danielsaidi/KeyboardKit)  
+	[KeyboardKit SwiftUI Readme](https://github.com/danielsaidi/KeyboardKit/blob/master/Readmes/SwiftUI.md)  
+    [SwiftUI-Tutorial](https://github.com/danielsaidi/KeyboardKit/blob/master/Readmes/SwiftUI-Tutorial.md)  
